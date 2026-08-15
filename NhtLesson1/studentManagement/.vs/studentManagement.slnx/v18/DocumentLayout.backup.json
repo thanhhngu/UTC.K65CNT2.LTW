@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ADMIN\\OneDrive\\learnn\\LTW\\NhtLesson1\\studentManagement\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{70D743C0-CA02-4390-AA17-9D6FF91A6F33}|studentManagement\\studentManagement.csproj|c:\\users\\admin\\onedrive\\learnn\\ltw\\nhtlesson1\\studentmanagement\\studentmanagement\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70D743C0-CA02-4390-AA17-9D6FF91A6F33}|studentManagement\\studentManagement.csproj|solutionrelative:studentmanagement\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70D743C0-CA02-4390-AA17-9D6FF91A6F33}|studentManagement\\studentManagement.csproj|c:\\users\\admin\\onedrive\\learnn\\ltw\\nhtlesson1\\studentmanagement\\studentmanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70D743C0-CA02-4390-AA17-9D6FF91A6F33}|studentManagement\\studentManagement.csproj|solutionrelative:studentmanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "student.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\learnn\\LTW\\NhtLesson1\\studentManagement\\studentManagement\\student.cs",
+              "RelativeDocumentMoniker": "studentManagement\\student.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\learnn\\LTW\\NhtLesson1\\studentManagement\\studentManagement\\student.cs",
+              "RelativeToolTip": "studentManagement\\student.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-15T05:38:54.464Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\learnn\\LTW\\NhtLesson1\\studentManagement\\studentManagement\\Program.cs",
+              "RelativeDocumentMoniker": "studentManagement\\Program.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\learnn\\LTW\\NhtLesson1\\studentManagement\\studentManagement\\Program.cs",
+              "RelativeToolTip": "studentManagement\\Program.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAuwFYAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-15T05:29:41.142Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

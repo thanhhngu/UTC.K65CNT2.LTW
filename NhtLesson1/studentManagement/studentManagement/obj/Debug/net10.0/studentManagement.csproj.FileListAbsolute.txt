@@ -1,0 +1,14 @@
+C:\Users\ADMIN\OneDrive\learnn\LTW\NhtLesson1\studentManagement\studentManagement\bin\Debug\net10.0\studentManagement.exe
+C:\Users\ADMIN\OneDrive\learnn\LTW\NhtLesson1\studentManagement\studentManagement\bin\Debug\net10.0\studentManagement.deps.json
+C:\Users\ADMIN\OneDrive\learnn\LTW\NhtLesson1\studentManagement\studentManagement\bin\Debug\net10.0\studentManagement.runtimeconfig.json
+C:\Users\ADMIN\OneDrive\learnn\LTW\NhtLesson1\studentManagement\studentManagement\bin\Debug\net10.0\studentManagement.dll
+C:\Users\ADMIN\OneDrive\learnn\LTW\NhtLesson1\studentManagement\studentManagement\bin\Debug\net10.0\studentManagement.pdb
+C:\Users\ADMIN\OneDrive\learnn\LTW\NhtLesson1\studentManagement\studentManagement\obj\Debug\net10.0\studentManagement.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ADMIN\OneDrive\learnn\LTW\NhtLesson1\studentManagement\studentManagement\obj\Debug\net10.0\studentManagement.AssemblyInfoInputs.cache
+C:\Users\ADMIN\OneDrive\learnn\LTW\NhtLesson1\studentManagement\studentManagement\obj\Debug\net10.0\studentManagement.AssemblyInfo.cs
+C:\Users\ADMIN\OneDrive\learnn\LTW\NhtLesson1\studentManagement\studentManagement\obj\Debug\net10.0\studentManagement.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\OneDrive\learnn\LTW\NhtLesson1\studentManagement\studentManagement\obj\Debug\net10.0\studentManagement.dll
+C:\Users\ADMIN\OneDrive\learnn\LTW\NhtLesson1\studentManagement\studentManagement\obj\Debug\net10.0\refint\studentManagement.dll
+C:\Users\ADMIN\OneDrive\learnn\LTW\NhtLesson1\studentManagement\studentManagement\obj\Debug\net10.0\studentManagement.pdb
+C:\Users\ADMIN\OneDrive\learnn\LTW\NhtLesson1\studentManagement\studentManagement\obj\Debug\net10.0\studentManagement.genruntimeconfig.cache
+C:\Users\ADMIN\OneDrive\learnn\LTW\NhtLesson1\studentManagement\studentManagement\obj\Debug\net10.0\ref\studentManagement.dll
