@@ -1,0 +1,32 @@
+*.slnx# Build results
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Logs
+*.log
+
+# NuGet packages
+packages/
+*.nupkg
+*.snupkg
+
+# Publish output
+publish/
+
+# Node.js dependencies (nếu có frontend)
+node_modules/
+
+# Solution filter files
+*.slnx
+
+# Backup & temp files
+*.bak
+*.tmp
+*.temp
+
+.github/
