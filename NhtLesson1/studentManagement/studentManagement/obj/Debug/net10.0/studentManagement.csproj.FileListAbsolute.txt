@@ -12,3 +12,4 @@ C:\Users\ADMIN\OneDrive\learnn\LTW\NhtLesson1\studentManagement\studentManagemen
 C:\Users\ADMIN\OneDrive\learnn\LTW\NhtLesson1\studentManagement\studentManagement\obj\Debug\net10.0\studentManagement.pdb
 C:\Users\ADMIN\OneDrive\learnn\LTW\NhtLesson1\studentManagement\studentManagement\obj\Debug\net10.0\studentManagement.genruntimeconfig.cache
 C:\Users\ADMIN\OneDrive\learnn\LTW\NhtLesson1\studentManagement\studentManagement\obj\Debug\net10.0\ref\studentManagement.dll
+C:\Users\ADMIN\OneDrive\learnn\LTW\NhtLesson1\studentManagement\studentManagement\obj\Debug\net10.0\studentManagement.sourcelink.json
