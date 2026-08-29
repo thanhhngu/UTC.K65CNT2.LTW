@@ -1,0 +1,67 @@
+﻿@model List<NhtLesson3Lab02.Models.Category>
+@{
+    ViewData["Title"] = "Trang chủ sản phẩm";
+	var allCategories = ViewBag.AllCategories;
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-3">
+            <h4 class="text-uppercase mb-3">Danh Mục</h4>
+            <div class="list-group rounded-0">
+                @foreach (var cate in allCategories)
+                {
+                    <a asp-route="ShowByCategory" asp-route-categoryName="@cate.Name" class="list-group-item list-group-item-action text-muted">@cate.Name</a>
+                }
+                @*
+                <a href="#" class="list-group-item list-group-item-action text-muted">Túi xách</a>
+                <a href="#" class="list-group-item list-group-item-action text-muted">Đồng hồ</a>
+                <a href="#" class="list-group-item list-group-item-action text-muted">Ti vi</a>
+                <a href="#" class="list-group-item list-group-item-action text-muted">Tủ lạnh</a>
+                <a href="#" class="list-group-item list-group-item-action text-muted">Máy bơm</a>
+                <a href="#" class="list-group-item list-group-item-action text-muted">Quạt điện</a>
+                <a href="#" class="list-group-item list-group-item-action text-muted">Lò sưởi</a> *@
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <h4 class="mb-3">Danh sách sản phẩm</h4>
+
+            <div class="row">
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var item in Model)
+                    {
+                        @foreach (var product in item.Products)
+                        {
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100 rounded-0 shadow-sm border-light">
+                                    <div class="bg-light d-flex align-items-center justify-content-center" style="height: 250px; overflow: hidden;">
+                                        <img src="~/AvtImg/bear.png" alt="@item.Name" class="img-fluid" style="object-fit: cover; height: 100%; width: 100%;" />
+                                    </div>
+
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title" style="font-size: 1.1rem;">@item.Name</h5>
+
+                                        <p class="card-text mb-3" style="font-size: 0.9rem;">
+                                            <del class="text-muted">Giá: @product.Price.ToString("N0")</del>
+                                            <span class="ms-1 text-dark">Giá: @product.Price.ToString("N0")</span>
+                                        </p>
+
+                                        <a asp-route="ProductDetails" asp-route-id="@product.Id" class="btn btn-success mt-auto w-100 rounded-1">Chi tiết</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                }
+                else
+                {
+                    <div class="col-12">
+                        <div class="alert alert-warning">Chưa có sản phẩm nào.</div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

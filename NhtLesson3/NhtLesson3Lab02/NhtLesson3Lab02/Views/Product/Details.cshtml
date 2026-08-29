@@ -1,0 +1,56 @@
+﻿@model NhtLesson3Lab02.Models.Product
+
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-dark fw-normal">Chi tiết sản phẩm</h2>
+
+    <div class="row">
+        <div class="col-md-5 mb-4">
+            <img src="~/AvtImg/bear.png" alt="@Model.Name" class="img-fluid" />
+        </div>
+
+        <div class="col-md-7">
+            <h4 class="mb-3 fw-normal">Sản phẩm: @Model.Name</h4>
+
+            <p class="fs-5 mb-3">
+                <span>Giá gốc: <del class="text-muted">50000</del></span>
+                <span class="ms-2">Giá mới: @Model.Price.ToString("N0")</span>
+            </p>
+
+            <h5 class="fw-normal mt-4">Mô Tả:</h5>
+            <p class="text-muted" style="text-align: justify;">
+                @if (string.IsNullOrEmpty(Model.Description))
+                {
+                    @:Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa eligendi, voluptatem perspiciatis qui delectus ab unde iure doloribus natus expedita, laborum blanditiis quaerat repellendus necessitatibus nam quo earum ex suscipit.
+                }
+                else
+                {
+                    @Model.Description
+                }
+            </p>
+
+            <p class="fs-5 mt-4">
+                Trạng thái:
+                @if (Model.Qty > 0)
+                {
+                    <span>Còn hàng</span>
+                }
+                else
+                {
+                    <span class="text-danger">Hết hàng</span>
+                }
+            </p>
+
+            <p class="fs-5">
+                Ngày đăng: 15/07/2021 12:00:00 SA
+            </p>
+
+            <hr class="my-4 text-muted" />
+
+            <a asp-controller="Product" asp-action="Index" class="btn btn-danger px-4 rounded-0">Về danh sách</a>
+        </div>
+    </div>
+</div>
