@@ -1,0 +1,67 @@
+﻿@* @{
+    ViewData["Title"] = "Home Page";
+}
+
+<partial name="_Banner" />
+
+<hr />
+
+<button id="loadAjax" class="btn btn-sm btn-primary">
+    Click load book từ partialResult
+</button>
+
+<hr />
+
+<div id="data-from-ajax" class="row">Loading data....</div>
+
+<hr />
+@section Scripts {
+    <script>
+        $('#loadAjax').click(function () {
+            $('#data-from-ajax').load("/Book/_BookList");
+        });
+    </script>
+}
+
+<hr />
+<h2>Book List from ViewComponent</h2>
+@await Component.InvokeAsync("Book")
+
+<hr />
+@{
+	Layout = "My_Layout";
+} *@
+
+@{
+    ViewData["Title"] = "Home Page";
+    var products = ViewBag.Products as List<NhtLesson4Lab03.Models.Product>;
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            @await Html.PartialAsync("_Category")
+        </div>
+
+        <div class="col-md-8">
+            <h2>Sản phẩm mới nhất</h2>
+            <div class="row">
+                @foreach (var p in products)
+                {
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <img src="@p.Image" class="card-img-top" alt="@p.Name" />
+                            <div class="card-body">
+                                <h5 class="card-title">@p.Name</h5>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+            <h2>Sản phẩm hot</h2>
+            @await Component.InvokeAsync("Product")
+        </div>
+    </div>
+</div>

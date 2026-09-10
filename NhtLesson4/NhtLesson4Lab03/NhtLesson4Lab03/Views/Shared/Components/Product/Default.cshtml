@@ -1,0 +1,15 @@
+﻿@model IEnumerable<NhtLesson4Lab03.Models.Product>
+
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="@product.Image" class="card-img-top" alt="@product.Name" />
+                <div class="card-body">
+                    <h5 class="card-title">@product.Name</h5>
+                </div>
+            </div>
+        </div>
+    }
+</div>

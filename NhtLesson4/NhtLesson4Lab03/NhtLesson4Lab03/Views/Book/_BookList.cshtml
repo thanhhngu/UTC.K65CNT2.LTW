@@ -1,0 +1,19 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<NhtLesson4Lab03.Models.Book>
+
+@foreach (var book in Model)
+{
+	<div class="card mb-3">
+		<div class="img-thumbnail">
+			<img src="@book.Image" alt="@book.Title" width="100" />
+			<div class="caption-top">
+				<h3>@book.Title</h3>
+				<p>Price: @book.Price.ToString("C")</p>
+			</div>
+		</div>
+	</div>
+}

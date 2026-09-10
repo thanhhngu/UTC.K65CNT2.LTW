@@ -1,0 +1,59 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<NhtLesson4Lab03.Models.Book>
+@{
+	ViewBag.Title = "Book Index";
+}
+<h2>Books</h2>
+<form action="" method="POST" class="d-flex gap-2" role="form">
+		<select name="AuthorId" class="form-control" asp-items="@ViewBag.authors">
+			<option value="">Select an author</option>
+		</select>
+		<select name="GenreId" class="form-control" asp-items="@ViewBag.genres">
+			<option value="">Select a genre</option>
+		</select>
+	<button type="submit" class="btn btn-primary">Filter</button>
+	<a asp-action="Create" class="btn btn-danger">Add New Book</a>
+</form>
+
+<hr />
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Title</th>
+			<th>Author</th>
+			<th>Genre</th>
+			<th>Price</th>
+			<th>Image</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var book in Model)
+		{
+			<tr>
+				<td>@book.Id</td>
+				<td>@book.Title</td>
+				<td>@book.AuthorId</td>
+				<td>@book.GenreId</td>
+				<td>@book.Price.ToString("C")</td>
+				<td>
+					@if (!string.IsNullOrEmpty(book.Image))
+					{
+						<img src="@book.Image" alt="@book.Title" width="100" />
+					}
+					else
+					{
+						<span>No image available</span>
+					}
+				</td>
+				<td>
+					<a asp-action="Edit" asp-route-id="@book.Id" class="btn btn-sm btn-primary">Edit</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
