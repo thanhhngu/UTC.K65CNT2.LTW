@@ -13,6 +13,7 @@ namespace NhtLesson07Lab.Models
         public string Name { get; set; }
         [ValidationAttributes]
         public string Image { get; set; }
+        [MinPriceValidation(100000)]
         public float Price { get; set; }
         [Remote(action: "ValidateSalePrice", controller: "Product")]
         public float SalePrice { get; set; }

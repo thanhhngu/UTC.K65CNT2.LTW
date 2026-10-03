@@ -47,3 +47,35 @@ public class SensitiveWordValidationAttribute : ValidationAttribute
 
         return ValidationResult.Success;
     }
+}
+
+public class MinPriceValidationAttribute : ValidationAttribute
+{
+    private readonly int _minPrice;
+
+    public MinPriceValidationAttribute(int minPrice)
+    {
+        _minPrice = minPrice;
+    }
+
+    protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+    {
+        var text = value as string;
+        if (string.IsNullOrEmpty(text))
+        {
+            return new ValidationResult("Price là bắt buộc");
+        }
+
+        if (!int.TryParse(text, out int price))
+        {
+            return new ValidationResult("Price phải là số");
+        }
+
+        if (price < _minPrice)
+        {
+            return new ValidationResult($"Price phải >= {_minPrice}");
+        }
+
+        return ValidationResult.Success;
+    }
+}
