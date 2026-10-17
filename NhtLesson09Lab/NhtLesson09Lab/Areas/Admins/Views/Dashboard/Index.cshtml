@@ -1,0 +1,132 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<!-- 4 Ô THỐNG KÊ -->
+<div class="row">
+    <div class="col-lg-3 col-6">
+        <div class="small-box text-bg-primary">
+            <div class="inner">
+                <h3>150</h3>
+                <p>New Orders</p>
+            </div>
+            <i class="bi bi-cart-fill small-box-icon"></i>
+            <a href="#" class="small-box-footer">More info <i class="bi bi-chevron-right"></i></a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-6">
+        <div class="small-box text-bg-success">
+            <div class="inner">
+                <h3>53%</h3>
+                <p>Bounce Rate</p>
+            </div>
+            <i class="bi bi-graph-up small-box-icon"></i>
+            <a href="#" class="small-box-footer">More info <i class="bi bi-chevron-right"></i></a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-6">
+        <div class="small-box text-bg-warning">
+            <div class="inner">
+                <h3>44</h3>
+                <p>User Registrations</p>
+            </div>
+            <i class="bi bi-person-plus-fill small-box-icon"></i>
+            <a href="#" class="small-box-footer">More info <i class="bi bi-chevron-right"></i></a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-6">
+        <div class="small-box text-bg-danger">
+            <div class="inner">
+                <h3>65</h3>
+                <p>Unique Visitors</p>
+            </div>
+            <i class="bi bi-eye-fill small-box-icon"></i>
+            <a href="#" class="small-box-footer">More info <i class="bi bi-chevron-right"></i></a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- SALES CHART -->
+    <div class="col-md-8">
+        <div class="card card-primary card-outline">
+            <div class="card-header"><h3 class="card-title">Sales</h3></div>
+            <div class="card-body"><div id="sales-chart"></div></div>
+        </div>
+        <!-- SALES GRAPH (line) -->
+        <div class="card card-info card-outline">
+            <div class="card-header"><h3 class="card-title">Sales Graph</h3></div>
+            <div class="card-body"><div id="sales-graph"></div></div>
+        </div>
+    </div>
+
+    <!-- VISITORS MAP + DIRECT CHAT -->
+    <div class="col-md-4">
+        <div class="card card-success card-outline">
+            <div class="card-header"><h3 class="card-title">Visitors</h3></div>
+            <div class="card-body p-0">
+                <div id="visitors-map" style="height:250px;"></div>
+            </div>
+        </div>
+
+        <div class="card direct-chat direct-chat-primary">
+            <div class="card-header"><h3 class="card-title">Direct Chat</h3></div>
+            <div class="card-body">
+                <div class="direct-chat-messages">
+                    <div class="direct-chat-msg">
+                        <div class="direct-chat-infos clearfix">
+                            <span class="direct-chat-name float-start">Alexander Pierce</span>
+                            <span class="direct-chat-timestamp float-end">23 Jan 2:00pm</span>
+                        </div>
+                        <div class="direct-chat-text">Is this template really for free? That's unbelievable!</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Type Message ..." />
+                    <button type="button" class="btn btn-primary">Send</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TO DO LIST -->
+        <div class="card card-warning card-outline">
+            <div class="card-header"><h3 class="card-title">To Do List</h3></div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <input type="checkbox" class="form-check-input me-2" /> Design a nice theme
+                    </li>
+                    <li class="list-group-item">
+                        <input type="checkbox" class="form-check-input me-2" checked /> Make the theme responsive
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Sales area chart
+        new ApexCharts(document.querySelector("#sales-chart"), {
+            chart: { type: 'area', height: 250 },
+            series: [{ name: 'Sales', data: [30, 40, 35, 50, 49, 60, 70] }],
+            xaxis: { categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'] }
+        }).render();
+
+        // Sales line graph
+        new ApexCharts(document.querySelector("#sales-graph"), {
+            chart: { type: 'line', height: 250 },
+            series: [{ name: 'Sales', data: [15, 20, 12, 25, 18, 30, 22] }],
+            xaxis: { categories: ['17/5', '18/5', '19/5', '20/5', '21/5', '22/5', '23/5'] }
+        }).render();
+
+        // Visitors map
+        new jsVectorMap({
+            selector: "#visitors-map",
+            map: "world"
+        });
+    </script>
+}

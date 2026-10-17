@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - Admin</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@fortawesome/fontawesome-free@6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css" />
+    <link rel="stylesheet" href="~/dist/css/adminlte.min.css" />
+</head>
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <div class="app-wrapper">
+
+        <!-- NAVBAR -->
+        <nav class="app-header navbar navbar-expand bg-body">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+                            <i class="bi bi-list"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item d-none d-md-block">
+                        <a href="@Url.Action("Index", "Dashboard", new { area = "Admin" })" class="nav-link">Trang chủ</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- SIDEBAR -->
+        <aside class="app-sidebar bg-dark shadow" data-bs-theme="dark">
+            <div class="sidebar-brand">
+                <a href="@Url.Action("Index", "Dashboard", new { area = "Admins" })" class="brand-link">
+                    <img src="~/dist/assets/img/AdminLTELogo.png" class="brand-image opacity-75 shadow" alt="Logo" />
+                    <span class="brand-text fw-light">QuanTri</span>
+                </a>
+            </div>
+
+            <div class="sidebar-wrapper">
+                <nav class="mt-2">
+                    <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "Dashboard", new { area = "Admins" })" class="nav-link active">
+                                <i class="nav-icon bi bi-speedometer2"></i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "Categories", new { area = "Admins" })" class="nav-link">
+                                <i class="nav-icon bi bi-tags"></i>
+                                <p>Danh mục (Category)</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "Products", new { area = "Admins" })" class="nav-link">
+                                <i class="nav-icon bi bi-box-seam"></i>
+                                <p>Sản phẩm (Product)</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "Banners", new { area = "Admins" })" class="nav-link">
+                                <i class="nav-icon bi bi-images"></i>
+                                <p>Banner</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "Blogs", new { area = "Admins" })" class="nav-link">
+                                <i class="nav-icon bi bi-journal-text"></i>
+                                <p>Blog</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="app-main">
+            <div class="app-content-header">
+                <div class="container-fluid">
+                    <h3 class="mb-0">@ViewData["Title"]</h3>
+                </div>
+            </div>
+            <div class="app-content">
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="app-footer">
+            <strong>&copy; @DateTime.Now.Year</strong> - Quản trị hệ thống.
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/js/jsvectormap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/maps/world.js"></script>
+    <script src="~/dist/js/adminlte.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
