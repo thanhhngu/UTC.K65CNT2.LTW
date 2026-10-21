@@ -1,0 +1,13 @@
+﻿@model IEnumerable<NhtLesson10Lab.Models.MenuItem>
+
+<nav class="sidebar-nav" aria-label="Main navigation">
+    <h2 class="sidebar-title">Menu</h2>
+    <ul class="nav flex-column">
+        @foreach (var item in Model)
+        {
+            <li class="nav-item">
+                <a class="nav-link sidebar-link" href="@item.Link">@item.Name</a>
+            </li>
+        }
+    </ul>
+</nav>
