@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 public class LearnerController : Controller
 {
     private readonly SchoolDBContext _context;
+    private int pageSize = 3;
 
     public LearnerController(SchoolDBContext context)
     {
@@ -15,16 +16,16 @@ public class LearnerController : Controller
     }
 
     // GET: LEARNERS
-    public async Task<IActionResult> Index()    
-    {
-        var learners = await _context.Learners
-            .Include(learner => learner.Major)
-            .Include(learner => learner.Enrollments)
-                .ThenInclude(enrollment => enrollment.Course)
-            .ToListAsync();
+    //public async Task<IActionResult> Index()    
+    //{
+    //    var learners = await _context.Learners
+    //        .Include(learner => learner.Major)
+    //        .Include(learner => learner.Enrollments)
+    //            .ThenInclude(enrollment => enrollment.Course)
+    //        .ToListAsync();
 
-        return View(learners);
-    }
+    //    return View(learners);
+    //}
 
     // GET: LEARNERS/Details/5
     public async Task<IActionResult> Details(int? learnerid)
@@ -121,15 +122,15 @@ public class LearnerController : Controller
     }
 
     // GET: LEARNERS/Delete/5
-    public async Task<IActionResult> Delete(int? learnerid)
+    public async Task<IActionResult> Delete(int? id)
     {
-        if (learnerid == null)
+        if (id == null)
         {
             return NotFound();
         }
 
         var learner = await _context.Learners
-            .FirstOrDefaultAsync(m => m.LearnerID == learnerid);
+            .FirstOrDefaultAsync(m => m.LearnerID == id);
         if (learner == null)
         {
             return NotFound();
@@ -141,9 +142,9 @@ public class LearnerController : Controller
     // POST: LEARNERS/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DeleteConfirmed(int? learnerid)
+    public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var learner = await _context.Learners.FindAsync(learnerid);
+        var learner = await _context.Learners.FindAsync(id);
         if (learner != null)
         {
             _context.Learners.Remove(learner);
@@ -153,8 +154,54 @@ public class LearnerController : Controller
         return RedirectToAction(nameof(Index));
     }
 
-    private bool LearnerExists(int? learnerid)
+    private bool LearnerExists(int? id)
     {
-        return _context.Learners.Any(e => e.LearnerID == learnerid);
+        return _context.Learners.Any(e => e.LearnerID == id);
     }
+
+    public IActionResult Index(int? mid)
+    {
+        var learners = _context.Learners
+            .Include(learner => learner.Major)
+            .Include(learner => learner.Enrollments)
+            .ThenInclude(enrollment => enrollment.Course)
+            .Where(learner => !mid.HasValue || learner.MajorID == mid.Value)
+            .ToList();
+        int pageNumber = (int)Math.Ceiling((double)learners.Count / pageSize);
+        ViewBag.pageNumber = pageNumber;
+        var result = learners.Take(pageSize).ToList();
+        return View(learners);
+    }
+    public IActionResult GetLearnersByMajor(int? mid)
+    {
+        var learners = _context.Learners
+            .Include(learner => learner.Major)
+            .Include(learner => learner.Enrollments)
+            .ThenInclude(enrollment => enrollment.Course)
+            .Where(learner => !mid.HasValue || learner.MajorID == mid.Value)
+            .ToList();
+        return PartialView("_LearnerListPartial", learners);
+    }
+
+    public IActionResult LearnerFilter(int? mid, string? keyword, int? pageIndex)
+    {
+        var learners = (IQueryable<Learner>)_context.Learners;
+        int page = (int) (pageIndex == null || pageIndex < 0 ? 1 : pageIndex);
+        if (mid != null)
+        {
+            learners = learners.Where(learner => learner.MajorID == mid);
+            ViewBag.mid = mid;
+        }
+
+        if(keyword != null)
+        {
+            learners = learners.Where(learner => learner.LastName.ToLower().Contains(keyword.ToLower()) || learner.FirstMidName.ToLower().Contains(keyword.ToLower()));
+            ViewBag.keyword = keyword;
+        }
+        int pageNumber = (int)Math.Ceiling((double)learners.Count() / pageSize);
+        ViewBag.pageNumber = pageNumber;
+        var result = learners.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+        return PartialView("_LearnerListPartial", result);
+    }
+
 }
