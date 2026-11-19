@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BookHub - Nhà sách trực tuyến</title>
+    <link href="~/css/layout.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <!-- Begin Header -->
+	<partial name="NguyenHuuThanh_Header" />
+    <!-- End Header -->
+    <!-- Begin Main Content -->
+    <main class="main">
+        <div class="container">
+            <div class="banner"><img src="images/banner.jpg" alt="Banner" /></div>
+            <div class="section-head">
+                <h3>Nguyen Huu Thanh</h3>
+                <a href="#">Xem tất cả &rsaquo;</a>
+            </div>
+            @RenderBody()
+        </div>
+    </main>
+    <!-- End Main Content -->
+    <!-- Begin Footer -->
+	<partial name="NguyenHuuThanh_Footer" />
+    <!-- End Footer -->
+    <div class="to-top">&uarr;</div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="~/js/site.js"></script>
+    <script>
+            $(document).on("click", ".ll", function(e) {
+                e.preventDefault();
+                var link = $(this);
+                $(".menu li").removeClass("active");
+                link.parent().addClass("active");
+                console.log("..........");
+                $.ajax({
+                    url: "/Home/GetBooksByCategory",
+                    type: "GET",
+                    data: { Id: link.data("id") },
+                    success: function(data) {
+                        $(".change").html(data);
+                    },
+                    error: function() {
+                        alert("Đã xảy ra lỗi khi tải sách.");
+                    }
+                });
+			});
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+

@@ -1,0 +1,8 @@
+﻿@model IEnumerable<NguyenHuuThanh_241230845_2026.Models.TheLoai>
+<ul class="menu">
+    <li class="active"><a href="index.html">NguyenHuuThanh</a></li>
+	@foreach (var item in Model)
+	{
+		<li><a href="#" class="ll" data-id="@item.MaTl">@item.TenTl</a></li>
+	}
+</ul>

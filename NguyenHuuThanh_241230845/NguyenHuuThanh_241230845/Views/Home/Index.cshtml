@@ -1,0 +1,27 @@
+﻿@model IEnumerable<NguyenHuuThanh_241230845.Models.HangHoa>
+
+<partial name="_NguyenHuuThanh_MainContent" model="Model" />
+
+@section Scripts {
+	<script src="~/Script/js/jquery-1.7.2.min.js"></script>
+	<script>
+		$(document).on("click", ".ll", function(e) {
+			e.preventDefault();
+			var link = $(this);
+			$('.menu li').removeClass('active');
+			link.parent().addClass('active');
+
+			$.ajax({
+				url: '/Home/Cate',
+				type: 'GET',
+				data: { MaLoai: link.data('id') },
+				success: function(result) {
+					$('.container').html(result);
+				},
+				error: function() {
+					alert('Error occurred while loading content.');
+				}
+			});
+		});
+	</script>
+}

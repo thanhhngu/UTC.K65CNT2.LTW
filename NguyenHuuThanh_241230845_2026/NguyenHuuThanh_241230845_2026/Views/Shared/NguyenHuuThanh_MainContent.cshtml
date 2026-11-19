@@ -1,0 +1,14 @@
+﻿@model IEnumerable<NguyenHuuThanh_241230845_2026.Models.Sach>
+
+<div class="change">
+	<div class="grid">
+        @foreach (var book in Model)
+        {
+            <div class="book-card">
+                <a href="#"><img src="images/@book.Anh" alt="" /></a>
+                <h2>@book.TenSach</h2>
+                <div class="book-foot"><span class="price">@book.Gia</span><button class="btn-buy">Thêm vào giỏ</button></div>
+            </div>
+        }
+    </div>
+</div>
