@@ -7,7 +7,7 @@ public partial class HangHoa
 {
     public int MaHang { get; set; }
 
-    public int MaLoai { get; set; }
+    public int Maloai { get; set; }
 
     public string TenHang { get; set; } = null!;
 

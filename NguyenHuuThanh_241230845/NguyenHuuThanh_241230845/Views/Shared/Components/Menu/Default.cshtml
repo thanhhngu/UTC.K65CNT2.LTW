@@ -1,10 +1,9 @@
 ﻿@model IEnumerable<NguyenHuuThanh_241230845.Models.LoaiHang>
-
 <ul>
-	<li class="active"><a href="index.html">NguyenHuuThanh</a></li>
-	@foreach (var item in Model)
-	{
-	<li><a href="#" class="ll" data-id="@item.MaLoai">@item.TenLoai</a></li>
-	}
+	<li class="active"><a asp-action="Index" asp-controller="Home">Nguyen Huu Thanh</a></li>
+    @foreach (var item in Model)
+		{
+		<li><a href="#" class="ll" data-id="@item.MaLoai">@item.TenLoai</a></li>
+		}
 	<div class="clear"></div>
 </ul>

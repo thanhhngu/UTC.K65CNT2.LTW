@@ -7,22 +7,23 @@ namespace NguyenHuuThanh_241230845.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly AppDbContext _db;
-        public HomeController(AppDbContext db)
+        private readonly AppDbContext _context;
+        public HomeController(AppDbContext context)
         {
-            _db = db;
+            _context = context;
+        }
+
+        public IActionResult GetProductsWithinCategory(int Maloai)
+        {
+            var l = _context.HangHoas.Where(h => h.Maloai == Maloai).ToList();
+            return PartialView("NguyenHuuThanh_MainContent", l);
         }
         public IActionResult Index()
         {
-            var lh = _db.HangHoas.Where(h => h.Gia > 100).ToList();
-            return View(lh);
+            var l = _context.HangHoas.Where(h => h.Gia > 100).ToList();
+            return View(l);
         }
 
-        public IActionResult Cate(int MaLoai)
-        {
-            var lh = _db.HangHoas.Where(h => h.MaLoai == MaLoai).ToList();
-            return PartialView("_NguyenHuuThanh_MainContent", lh);
-        }
         public IActionResult Privacy()
         {
             return View();

@@ -39,7 +39,7 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.TenHang).HasMaxLength(50);
 
             entity.HasOne(d => d.MaLoaiNavigation).WithMany(p => p.HangHoas)
-                .HasForeignKey(d => d.MaLoai)
+                .HasForeignKey(d => d.Maloai)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_HangHoa_LoaiHang");
         });
