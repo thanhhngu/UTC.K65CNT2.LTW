@@ -14,6 +14,7 @@ namespace NguyenHuuThanh_241230845_2026.ViewModels.SachViewModel
         public decimal? Gia { get; set; }
         [Required(ErrorMessage = "Ảnh sách là bắt buộc.")]
         [RegularExpression(@"^.*\.(jpg|jpeg|png|gif)$", ErrorMessage = "Ảnh sách phải là một tệp hình ảnh hợp lệ.")]
+        
         public string? Anh { get; set; }
     }
 }

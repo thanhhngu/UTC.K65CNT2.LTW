@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AssetHub - Quản lý tài sản doanh nghiệp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/layout.css" />
+<link rel="stylesheet" href="~/css/style.css" />
+</head>
+<body>
+    <!-- Begin Header -->
+    <partial name="NguyenHuuThanh_Header" />
+    <!-- End Header -->
+    <!-- Begin Main Content -->
+    @RenderBody()
+    <!-- End Main Content -->
+    <!-- Begin Footer -->
+    <partial name="NguyenHuuThanh_Footer" />
+    <!-- End Footer -->
+    <div class="to-top">&uarr;</div>
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/main.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+    
+</body>
+</html>

@@ -18,6 +18,7 @@ namespace NguyenHuuThanh_241230845.Controllers
         public ActionResult Create()
         {
             ViewBag.LoaiHang = new SelectList(_context.LoaiHangs, "MaLoai", "TenLoai");
+            
             return View(new HangViewModel());
         }
 

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<NguyenHuuThanh_241230845_QLTS2.Models.TaiSan>
+
+<!-- Begin Main Content -->
+<main class="main">
+    <div class="container">
+        <div class="banner"><img src="images/banner.jpg" alt="Banner" /></div>
+
+        <!-- Tài sản mới nhập -->
+        <div class="section-head">
+            <h3>Tài sản mới nhập</h3>
+            <a href="#">Xem tất cả &rsaquo;</a>
+        </div>
+        <div class="grid">
+            <partial name="NguyenHuuThanh_MainContent" model="Model" />
+        </div>
+
+       
+    </div>
+</main>
+<!-- End Main Content -->
+
+@section Scripts{
+    <script>
+        $(document).on("click", ".ll", function (e) {
+            e.preventDefault();
+            var link = $(this);
+            $(".menu li").removeClass("active");
+            link.parent().addClass("active");
+
+            $.ajax({
+                url: "Home/GetPBC",
+                data: { MaL: link.data('id') },
+                type: "GET",
+                success: function(r){
+                    $(".grid").html(r);
+                }
+            })
+        })
+    </script>
+}
+    

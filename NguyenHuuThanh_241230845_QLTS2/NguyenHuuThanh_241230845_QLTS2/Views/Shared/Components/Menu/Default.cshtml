@@ -1,0 +1,9 @@
+﻿@model IEnumerable<NguyenHuuThanh_241230845_QLTS2.Models.LoaiTaiSan>
+<ul class="menu">
+    <li class="active"><a href="index.html">Nguyen Huu Thanh</a></li>
+    @foreach (var item in Model)
+    {
+        <li><a href="#" class="ll" data-id="@item.MaLoai">@item.TenLoai</a></li>
+        
+    }
+</ul>
